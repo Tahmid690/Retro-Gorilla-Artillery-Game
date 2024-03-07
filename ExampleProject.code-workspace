@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../Igraphics_july_2023-20240123T172350Z-001/Igraphics_july_2023/ExampleProject"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"iostream": "cpp"
+		}
+	}
+}
