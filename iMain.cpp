@@ -1,12 +1,17 @@
 # include "iGraphics.h"
 #include<windows.h>
 
-#include<iostream>
-using namespace std;
-
 #include<mmsystem.h>
 #pragma comment(lib,"winmm.lib")
 
+int min(int a,int b){
+	if(a<b) return a;
+	return b;
+}
+int max(int a,int b){
+	if(a>b) return a;
+	return b;
+}
 int building_chk[1500][1000];
 int main_menu=1,options=0;
 int game_on=0;
@@ -631,7 +636,6 @@ void draw_opt(){
 int game_finish(){
 	if(score_1*2>tot_round){
 		if(tmp_cnt<25){
-			
 			iShowBMP(0,0,"Pics//111.png");
 			Sleep(2);
 			tmp_cnt++;
@@ -648,7 +652,6 @@ int game_finish(){
 	}
 	else if(score_2*2>tot_round){
 		if(tmp_cnt<25){
-			
 			iShowBMP(0,0,"Pics//222.png");
 			Sleep(2);
 			tmp_cnt++;
@@ -666,7 +669,6 @@ int game_finish(){
 
 	if(round_no>tot_round){
 		if(tmp_cnt<25){
-			
 			iShowBMP(0,0,"Pics//333.png");
 			Sleep(2);
 			tmp_cnt++;
@@ -686,7 +688,7 @@ int game_finish(){
 }
 
 int counter=0;
-
+int game_fin_sf=0;
 
 void gorilla_move(){
 	char xd[10];
@@ -732,7 +734,6 @@ void iDraw() {
 	// cout << dv << " " << downflg << " " << didx << endl;
 	//Game_Finish
 	if(game_finish()){
-		// if(sound) PlaySound("win.wav",NULL,SND_ASYNC);
 		return;
 	}
 	
@@ -748,11 +749,13 @@ void iDraw() {
 		if(round_over==1){
 			
 			iShowBMP(0,0,"Pics//11.jpg");
+			game_fin_sf=1;
 			// if(sound) PlaySound("win.wav",NULL,SND_ASYNC);
 		}
 		else{
 			
 			iShowBMP(0,0,"Pics//22.jpg");
+			game_fin_sf=1;
 			// if(sound) PlaySound("win.wav",NULL,SND_ASYNC);
 		}
 		Sleep(2);
@@ -855,7 +858,7 @@ void iMouseMove(int mx, int my) {
 	(mx, my) is the position where the mouse pointer is.
 	*/
 void iMouse(int button, int state, int mx, int my) {
-	cout << mx << " " << my << " clk\n";
+	// cout << mx << " " << my << " clk\n";
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
 		// if(main_menu && mx>=870 && mx<=1020 && my>=600 && my<=630){
 		// 	game_mode=1;
@@ -1056,7 +1059,6 @@ void iSpecialKeyboard(unsigned char key) {
 	}
 	//place your codes for other keys here
 }
-
 
 int main() {
 	//place your own initialization codes here.
